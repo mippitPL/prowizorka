@@ -15,8 +15,8 @@ class PerformancesController < ApplicationController
       kind:              params[:kind],
       short_description: params[:short_description],
       user_id:           params[:user_id],
-      latitude:          params[:latitude],
-      longitude:         params[:longitude])
+      lat:          params[:lat],
+      long:         params[:long])
 
     render json: performance
   end
