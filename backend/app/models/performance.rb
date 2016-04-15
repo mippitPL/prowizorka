@@ -12,7 +12,7 @@ class Performance < ActiveRecord::Base
 	  "http://192.168.47.42:3000/user3.jpg",
 	  "http://192.168.47.42:3000/user4.jpg"
 	]
-	arr[user_id % 4]
+	arr[id % 4]
   end
 
   def as_json(*)
