@@ -1,9 +1,4 @@
 class PerformancesController < ApplicationController
-  def index
-    performances = Performance.where(user_id: params[:user_id])
-    render json: performances
-  end
-
   def show
     performance = Performance
       .where(id: params[:id]).first

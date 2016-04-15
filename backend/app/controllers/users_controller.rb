@@ -22,4 +22,9 @@ class UsersController < ApplicationController
 
     render json: user
   end
+
+  def performances
+    performances = Performance.where(id: params[:id])
+    render json: performances
+  end
 end

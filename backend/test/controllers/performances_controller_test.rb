@@ -1,30 +1,6 @@
 require 'test_helper'
 
 class PerformancesControllerTest < ActionController::TestCase
-  test "lol" do
-    Performance.create!(
-      user_id: 1,
-      kind: "temporary",
-      short_description: "Szarpie na gitarze",
-      latitude: "57.01",
-      longitude: "43.02")
-
-    Performance.create!(
-      user_id: 2,
-      kind: "temporary",
-      short_description: "Szarpie na dudach",
-      latitude: "57.01",
-      longitude: "43.02")
-
-    get :index,
-      user_id: 1
-
-    body = JSON.parse(response.body)
-
-    assert_equal(body.size, 1)
-    assert_equal(body.first["short_description"], "Szarpie na gitarze")
-  end
-
   test "lol2" do
     p = Performance.create!(
       user_id: 1,

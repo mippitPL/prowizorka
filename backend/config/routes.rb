@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
-  resources :users, only: [:show, :create, :update]
-  resources :performances, only: [:index, :show, :create]
+  resources :users, only: [:show, :create, :update] do
+    member do
+      get 'performances'
+    end
+  end
+  resources :performances, only: [:show, :create]
 end
