@@ -1,7 +1,8 @@
 angular
 	.module('taxApp', [
 		'ngRoute',
-		'mobile-angular-ui'
+		'geolocation',
+		'mobile-angular-ui',
 	])
 
 	.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
@@ -9,6 +10,10 @@ angular
 	     	.when('/start', {
 	        	templateUrl: 'javascript/start/startView.html', 
 	        	controller: 'startController'
+	      	})	     	
+	      	.when('/discover', {
+	        	templateUrl: 'javascript/discover/discoverView.html', 
+	        	controller: 'discoverController'
 	      	})
 	}]); 
 	 
