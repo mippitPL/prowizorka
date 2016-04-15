@@ -4,15 +4,19 @@ angular.$inject = ['$scope', 'geolocation']
 
 function addperformanceController($scope, geolocation) {
 	$scope.newPerformance = {
-		short_description: ''
+		short_description: '',
+		location_lat:      null,
+		location_long:     null,
 	}
 
 	geolocation.getLocation().then(function(data){
+		$scope.newPerformance.location_lat  = String(data.coords.latitude);
+		$scope.newPerformance.location_long = String(data.coords.longitude);
+
 		$scope.mapData = {
-			lat:  data.coords.latitude, 
+			lat:  data.coords.latitude,
 			long: data.coords.longitude,
 		};
-		console.warn($scope.mapData);
 	});
 
 	function submitAddPerformance(performance) {
