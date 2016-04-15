@@ -7,7 +7,7 @@ function leafletMap() {
 		},
 		template : '',
 		link : function postLink(scope, elem, attrs) {
-			var createMap = function (lat, long) {
+			var createMap = function (lat, long, perf) {
 				var options = {
 					zoom : 12
 				}
@@ -28,13 +28,30 @@ function leafletMap() {
 				], {
 					padding: [10, 10]
 				});
+
+				markers = [];
+				for (var i = 0; i < perf.length; i++) {
+					var marker = L.marker([perf[i].lat, perf[i].long], 
+						{ 
+							icon: L.icon({iconUrl: 'img/marker-icon.png'})
+						}
+					);
+					marker.addTo(map).on('click', onMarkerClick);
+					markers[perf[i].descriptor] = marker;
+				}
+				
+				return markers;
 			}
 
 			scope.$watch('data', function(newVal, oldVal) {
 				if (newVal) {
-					createMap(newVal.lat, newVal.long);
+					var markers = createMap(newVal.lat, newVal.long, newVal.performances);
 				}
 			}, true);
 		}
+	}
+
+	function onMarkerClick() {
+		alert("gówno");
 	}
 }
