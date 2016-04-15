@@ -1,20 +1,19 @@
 class UsersController < ApplicationController
   def show
-    user = User.where(device_id: params[:id]).first
+    user = User.where(id: params[:id]).first!
     render json: user
   end
 
   def create
     user = User.create!(
       name:        params[:name],
-      description: params[:description],
-      device_id:   params[:device_id])
+      description: params[:description])
 
     render json: user
   end
 
   def update
-    user = User.where(device_id: params[:id]).first
+    user = User.where(id: params[:id]).first!
 
     user.update_attributes(
       name:        params[:name],
