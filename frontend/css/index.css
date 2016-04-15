@@ -1,12 +1,24 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+html, body, #map {
+    height: 100%;
+    overflow: hidden;
+}
+
 .discover-map-container
 {
 	width: 100%;
-	height: 500px;
+	height: 100%	;
 	overflow:hidden;
 }
 
 .discover-map {
 	width: 100%;
 	height: 100%;
-	border: 2px solid #476170;
+}
+
+.has-navbar-top .app-body {
+    padding-top: 31px !important;
 }

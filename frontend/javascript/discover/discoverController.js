@@ -18,6 +18,6 @@ function discoverController($scope, geolocation, $rootScope, httpService) {
     });
 
     $scope.showPerfModal = function (perf) {
-    	alert(perf.lat);
+    	alert(perf.id);
     }
 }
