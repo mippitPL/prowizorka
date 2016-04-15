@@ -14,5 +14,12 @@ class UsersController < ApplicationController
   end
 
   def update
+	user = User.where(device_id: params[:id]).first
+
+	user.update_attributes(
+	  name:        params[:name],
+	  description: params[:description])
+
+	render json: user
   end
 end
