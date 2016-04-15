@@ -3,7 +3,8 @@ angular.module('taxApp').directive('leafletMap', leafletMap);
 function leafletMap() { 
 	return {
 		scope : {
-			data : '='
+			data : '=',
+			showPerfModal : "="
 		},
 		template : '',
 		link : function postLink(scope, elem, attrs) {
@@ -31,12 +32,15 @@ function leafletMap() {
 
 				markers = [];
 				for (var i = 0; i < perf.length; i++) {
-					var marker = L.marker([perf[i].lat, perf[i].long], 
+					var p = perf[i];
+					var marker = L.marker([p.lat, p.long], 
 						{ 
 							icon: L.icon({iconUrl: 'img/marker-icon.png'})
 						}
 					);
-					marker.addTo(map).on('click', onMarkerClick);
+					marker.addTo(map).on('click', function () {
+						scope.showPerfModal(p);
+					});
 					markers[perf[i].descriptor] = marker;
 				}
 				
@@ -49,9 +53,5 @@ function leafletMap() {
 				}
 			}, true);
 		}
-	}
-
-	function onMarkerClick() {
-		alert("gówno");
 	}
 }
