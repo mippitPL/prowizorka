@@ -7,10 +7,10 @@ class Performance < ActiveRecord::Base
 
   def picture_url
 	arr = [
-	  "http://192.168.47.42:3000/pic1.jpg",
-	  "http://192.168.47.42:3000/pic1.jpg",
-	  "http://192.168.47.42:3000/pic1.jpg",
-	  "http://192.168.47.42:3000/pic1.jpg"
+	  "http://192.168.47.42:3000/user1.jpg",
+	  "http://192.168.47.42:3000/user2.jpg",
+	  "http://192.168.47.42:3000/user3.jpg",
+	  "http://192.168.47.42:3000/user4.jpg"
 	]
 	arr[user_id % 4]
   end
