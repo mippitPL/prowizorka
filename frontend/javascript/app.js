@@ -12,8 +12,12 @@ angular
 	        	controller: 'startController'
 	      	})	     	
 	      	.when('/discover', {
-	        	templateUrl: 'javascript/discover/discoverView.html', 
+	        	templateUrl: 'javascript/discover/discoverView.html',
 	        	controller: 'discoverController'
 	      	})
-	}]); 
+			.when('/test', {
+				templateUrl: 'javascript/test/testView.html',
+				controller: 'testController'
+			})
+	}]);
 	 
