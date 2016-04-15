@@ -12,13 +12,18 @@ class Performance < ActiveRecord::Base
 	  "http://192.168.47.42:3000/user3.jpg",
 	  "http://192.168.47.42:3000/user4.jpg"
 	]
-	arr[id % 4]
+	arr[user_id % 4]
   end
 
   def as_json(*)
 	super.merge({
 	  likes:       likes,
 	  picture_url: picture_url,
+	  user: {
+		id:          user.id,
+		name:        user.name,
+		description: user.description,
+	  }
 	})
   end
 end
