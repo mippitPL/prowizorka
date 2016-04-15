@@ -7,5 +7,9 @@ function httpService($http, $q) {
         return $http.get('http://192.168.47.42:3000/performances');
     }
 
+    factory.createUser = function(user) {
+        return $http.post('http://192.168.47.42:3000/users', user);
+    }
+
     return factory;
 }
