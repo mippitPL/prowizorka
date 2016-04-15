@@ -1,0 +1,15 @@
+<div class="scrollable">
+    <div class="scrollable-content">
+        <table class="table table-bordered">
+            <tr>
+                <td>Nazwa</td>
+                <td>{{ performance.short_description }}</td>
+            </tr>
+            <tr>
+                <td>Utworzone</td>
+                <td><span am-time-ago="performance.created_at"></span></td>
+            </tr>
+        </table>
+        {{ performance }}
+    </div>
+</div>

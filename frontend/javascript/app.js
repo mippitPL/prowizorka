@@ -1,9 +1,13 @@
-angular
+myapp = angular
 	.module('taxApp', [
 		'ngRoute',
 		'geolocation',
 		'mobile-angular-ui',
+		'angularMoment'
 	])
+	.run(function(amMoment) {
+		amMoment.changeLocale('pl');
+	})
 
 	.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 		$routeProvider
@@ -23,5 +27,8 @@ angular
 	        	templateUrl: 'javascript/createuser/createuserView.html', 
 	        	controller: 'createuserController'
 	      	})
-	}]); 
-	 
+		.when('/performance/:id', {
+			templateUrl: 'javascript/performance/performanceView.html',
+			controller: 'performanceController'
+		})
+	}]);

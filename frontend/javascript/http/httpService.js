@@ -7,6 +7,10 @@ function httpService($http, $q) {
         return $http.get('http://192.168.47.42:3000/performances');
     }
 
+    factory.getPerformance = function(id) {
+        return $http.get('http://192.168.47.42:3000/performances/'+id);
+    }
+
     factory.createUser = function(user) {
         return $http.post('http://192.168.47.42:3000/users', user);
     }
