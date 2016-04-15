@@ -1,8 +1,8 @@
 angular.module('taxApp').controller('discoverController', discoverController);
 
-angular.$inject = ['$scope', 'geolocation', '$rootScope', 'httpService'];
+angular.$inject = ['$scope', 'geolocation', '$rootScope', 'httpService', '$location'];
 
-function discoverController($scope, geolocation, $rootScope, httpService) {
+function discoverController($scope, geolocation, $rootScope, httpService, $location) {
 	$scope.performances = [];
 
 	httpService.getPerformances().then(function(response) {
@@ -18,6 +18,9 @@ function discoverController($scope, geolocation, $rootScope, httpService) {
     });
 
     $scope.showPerfModal = function (perf) {
-    	alert(perf.lat);
+		console.log(perf);
+		$scope.$apply(function () {
+			$location.path('performance/'+perf.id);
+		});
     }
 }

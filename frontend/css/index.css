@@ -36,3 +36,6 @@ html, body, #map {
 	background-repeat: no-repeat;
 	background-position: center;
 }
+.red {
+	color: red;
+}

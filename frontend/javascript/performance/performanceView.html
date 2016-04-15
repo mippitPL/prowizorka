@@ -1,15 +1,16 @@
 <div class="scrollable">
-    <div class="scrollable-content">
-        <table class="table table-bordered">
-            <tr>
-                <td>Nazwa</td>
-                <td>{{ performance.short_description }}</td>
-            </tr>
-            <tr>
-                <td>Utworzone</td>
-                <td><span am-time-ago="performance.created_at"></span></td>
+    <div class="scrollable-content" style="text-align: center">
+
+        <img id="photo" src="{{ performance.picture_url }}" width="100%" />
+
+        <h4 style="padding-top: 10px;">{{ performance.short_description }}</h4>
+        <h5><span am-time-ago="performance.created_at"></span></h5>
+        <h6>{{ performance.user.name }}</h6>
+        <table class="table" style="border: none;">
+            <tr style="text-align: center; font-size: 24pt;">
+                <td>&nbsp;&nbsp;<i class="fa fa-paypal"></i> </td>
+                <td ng-click="heartClick()" ><i class="fa fa-heart" ng-class="{red: heartClicked}"> </i>{{ performance.likes }}</td>
             </tr>
         </table>
-        {{ performance }}
     </div>
 </div>
