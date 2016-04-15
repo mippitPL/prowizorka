@@ -1,0 +1,19 @@
+<form role="form" ng-submit="submitAddPerformance(newPerformance)" class="ng-pristine ng-valid">
+  <fieldset>
+    <legend>Zaczynamy występ</legend>
+    <div class="form-group has-success has-feedback">
+      <label>Krótki opis</label>
+      <input type="text" ng-model="newPerformance.short_description" class="form-control ng-pristine ng-untouched ng-valid needsclick" placeholder="Wpisz swoją nazwę">
+    </div>
+  </fieldset>
+
+  <div class="addperformance-map-container">
+    <div addperformance-map id="map" class="addperformance-map" show-perf-modal="showPerfModal" data="mapData"></div>
+  </div>
+
+  <hr>
+
+  <button class="btn btn-primary btn-block">
+    Dodaj
+  </button>
+</form>

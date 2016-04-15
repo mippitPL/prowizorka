@@ -31,4 +31,8 @@ myapp = angular
 			templateUrl: 'javascript/performance/performanceView.html',
 			controller: 'performanceController'
 		})
+	      	.when('/addperformance', {
+	        	templateUrl: 'javascript/addperformance/addperformanceView.html', 
+	        	controller: 'addperformanceController'
+	      	})
 	}]);
