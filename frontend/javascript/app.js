@@ -15,9 +15,13 @@ angular
 	        	templateUrl: 'javascript/discover/discoverView.html',
 	        	controller: 'discoverController'
 	      	})
-			.when('/test', {
+		.when('/test', {
 				templateUrl: 'javascript/test/testView.html',
 				controller: 'testController'
 			})
-	}]);
+	      	.when('/createuser', {
+	        	templateUrl: 'javascript/createuser/createuserView.html', 
+	        	controller: 'createuserController'
+	      	})
+	}]); 
 	 
