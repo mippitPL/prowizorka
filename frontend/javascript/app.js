@@ -1,11 +1,10 @@
-angular
-	.module("taxApp", [
-		'ngRoute',
-		'taxApp.start'
-	]).config(['$routeProvider', function($routeProvider) {
-		$routeProvider
-			.when( '/start', {
-				'redirectTo': "start/startView.html"
-			})
-			.otherwise({redirectTo: '/chuj'});
-	}]);
+var app = angular.module('taxApp', ['ngRoute']);
+
+app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+ $routeProvider
+      .when('/start', {
+        templateUrl: 'javascript/start/startView.html', 
+        controller: 'startController'
+      })
+}]); 
+ 

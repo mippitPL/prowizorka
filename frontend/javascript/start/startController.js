@@ -5,5 +5,6 @@ angular
 startController.$inject = ['$scope'];
 
 function startController($scope) {
-	$scope.chuj = "chuj";
+	console.log("working");
+	$scope.chuj = "dupa";
 }
