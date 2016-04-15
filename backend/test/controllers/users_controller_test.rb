@@ -38,7 +38,7 @@ class UsersControllerTest < ActionController::TestCase
 	  device_id: "abcd"
 
 	put :update,
-	  id:          "abcd"
+	  id:          "abcd",
 	  name:        "Jan Kowalski",
 	  description: "moze jednak nie noob"
 
