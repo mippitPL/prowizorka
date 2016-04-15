@@ -3,6 +3,10 @@ angular.module('taxApp').controller('addperformanceController', addperformanceCo
 angular.$inject = ['$scope', 'geolocation']
 
 function addperformanceController($scope, geolocation) {
+	$scope.newPerformance = {
+		short_description: ''
+	}
+
 	geolocation.getLocation().then(function(data){
 		$scope.mapData = {
 			lat:  data.coords.latitude, 
@@ -10,23 +14,10 @@ function addperformanceController($scope, geolocation) {
 		};
 		console.warn($scope.mapData);
 	});
-	// $scope.newUser = {
-	// 	name:        '',
-	// 	description: ''
-	// }
 
-	// function resetCreateUserForm() {
-	// 	$scope.newUser = {
-	// 		name:        '',
-	// 		description: ''
-	// 	}
-	// }
+	function submitAddPerformance(performance) {
+		console.warn(performance);
+	}
 
-	// function submitCreateUser(user) {
-	// 	console.warn(user);
-
-	// 	// resetCreateUserForm();
-	// }
-
-	// $scope.submitCreateUser = submitCreateUser;
+	$scope.submitAddPerformance = submitAddPerformance;
 }

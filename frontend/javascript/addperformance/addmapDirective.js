@@ -30,19 +30,12 @@ function addperformanceMap() {
 					padding: [10, 10]
 				});
 
-				// markers = [];
-				// for (var i = 0; i < perf.length; i++) {
-				// 	var p = perf[i];
-				// 	var marker = L.marker([p.lat, p.long], 
-				// 		{ 
-				// 			icon: L.icon({iconUrl: 'img/marker-icon.png'})
-				// 		}
-				// 	);
-				// 	marker.addTo(map).on('click', function () {
-				// 		scope.showPerfModal(p);
-				// 	});
-				// 	markers[perf[i].descriptor] = marker;
-				// }
+				var marker = L.marker([lat, long], 
+					{ 
+						icon: L.icon({iconUrl: 'img/marker-icon.png'})
+					}
+				);
+				marker.addTo(map);
 				
 				return [];
 			}
