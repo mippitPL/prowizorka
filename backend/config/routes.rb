@@ -4,5 +4,5 @@ Rails.application.routes.draw do
       get 'performances'
     end
   end
-  resources :performances, only: [:show, :create]
+  resources :performances, only: [:index, :show, :create]
 end
