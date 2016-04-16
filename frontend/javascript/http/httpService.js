@@ -2,38 +2,40 @@ angular.module("taxApp").factory('httpService', ['$http', '$q', httpService]);
 
 function httpService($http, $q) {
     var factory = {};
+    var serverName = "http://hack4culture.cloudapp.net:3000";
 
     factory.getPerformances = function() {
-        return $http.get('http://192.168.47.42:3000/performances');
+        return $http.get(serverName + '/performances');
     }
 
     factory.getPerformance = function(id) {
-        return $http.get('http://192.168.47.42:3000/performances/'+id);
+        return $http.get(serverName + '/performances/'+id);
     }
 
     factory.createUser = function(user) {
-        return $http.post('http://192.168.47.42:3000/users', user);
+        return $http.post(serverName + '/users', user);
     }
 
     factory.addPerformance = function(performance) {
-        return $http.post('http://192.168.47.42:3000/performances', performance);
+        return $http.post(serverName + '/performances', performance);
     }
 
     factory.removePerformance = function(id) {
-        return $http.delete('http://192.168.47.42:3000/performances/' + id);
+        return $http.delete(serverName + '/performances/' + id);
     }
 
-    factory.renewPerformance = function(performance) {
-        return $http.post('http://192.168.47.42:3000/renewPerformance', performance);
-    }
     factory.toggleHeart = function(artist, user) {
         var data = {artist_id: artist, user_id: user};
-        return $http.post('http://192.168.47.42:3000/likes/toggle', data);
+        return $http.post(serverName + '/likes/toggle', data);
     }
 
     factory.isLiked = function(artist, user) {
         var data = {artist_id: artist, user_id: user};
-        return $http.post('http://192.168.47.42:3000/likes/is_liked', data);
+        return $http.post(serverName + '/likes/is_liked', data);
+    }
+
+    factory.renewPerformance = function(performance) {
+        return $http.post(serverName + '/renewPerformance', performance);
     }
 
     return factory;
