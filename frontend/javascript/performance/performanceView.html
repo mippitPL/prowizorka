@@ -24,9 +24,9 @@
             </table>
         </div>
         <div ng-if="performance.user_id == currentUser">
-            <button class="btn btn-block btn-md btn-primary">Pogrywam dalej</button>
+            <button class="btn btn-block btn-md btn-primary" ng-click="renewPerformance(performance)">Pogrywam dalej</button>
 
-            <button class="btn btn-block btn-md btn-danger">Zwijam się</button>
+            <button class="btn btn-block btn-md btn-danger" ng-click="removePerformance(performance)">Zwijam się</button>
         </div>
         <table class="table">
             <tr>

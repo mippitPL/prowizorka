@@ -19,5 +19,13 @@ function httpService($http, $q) {
         return $http.post('http://192.168.47.42:3000/performances', performance);
     }
 
+    factory.removePerformance = function(performance) {
+        return $http.post('http://192.168.47.42:3000/removePerformance', performance);
+    }
+
+    factory.renewPerformance = function(performance) {
+        return $http.post('http://192.168.47.42:3000/renewPerformance', performance);
+    }
+
     return factory;
 }

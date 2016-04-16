@@ -5,6 +5,11 @@ angular
 performanceController.$inject = ['$scope' ,'$routeParams','httpService'];
 
 function performanceController($scope, $routeParams, httpService) {
+    if (localStorage.getItem("userId") == null) {
+        $location.path("/start");
+    }
+
+    
     $scope.performance = {};
     $scope.currentUser = localStorage.getItem('userId');
     $scope.heartClicked = false;
@@ -36,5 +41,17 @@ function performanceController($scope, $routeParams, httpService) {
         } else {
             $scope.performance.likes--;
         }
+    }
+
+    $scope.renewPerformance = function(performance) {
+        httpService.renewPerformance(performance).then(function () {
+            // location.path("performance")
+        })
+    }
+
+    $scope.removePerformance = function(performance) {
+        httpService.removePerformance(performance).then(function () {
+            location.path("addperformance");
+        })
     }
 }

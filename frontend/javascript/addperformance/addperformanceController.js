@@ -3,6 +3,12 @@ angular.module('taxApp').controller('addperformanceController', addperformanceCo
 angular.$inject = ['$scope', 'geolocation', 'httpService', '$location', '$rootScope']
 
 function addperformanceController($scope, geolocation, httpService, $location, $rootScope) {
+
+	if (localStorage.getItem("userId") == null) {
+		$location.path("/start");
+	}
+
+
 	$rootScope.dataLoading = false;
 	$scope.newPerformance = {
 		short_description: '',

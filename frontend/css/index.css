@@ -81,3 +81,19 @@ html, body, #map {
 	background: url("../img/ajax-loader.gif") no-repeat scroll center center #FFF;
 	height: 100%;
 }
+
+.btn {
+	border-radius: 0 !important;
+}
+
+.form-control {
+	border-radius: 0 !important;
+}
+
+.form {
+	margin: 5px;
+}
+
+.form-start {
+	margin-top:100px;
+}

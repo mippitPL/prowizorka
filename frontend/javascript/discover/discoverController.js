@@ -3,6 +3,11 @@ angular.module('taxApp').controller('discoverController', discoverController);
 angular.$inject = ['$scope', 'geolocation', '$rootScope', 'httpService', '$location'];
 
 function discoverController($scope, geolocation, $rootScope, httpService, $location) {
+
+    if (localStorage.getItem("userId") == null) {
+        $location.path("/start");
+    }
+
 	$scope.performances = [];
 
 	httpService.getPerformances().then(function(response) {
