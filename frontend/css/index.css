@@ -76,3 +76,8 @@ html, body, #map {
     opacity: 0;
     filter: alpha(opacity=0);
 }
+
+.loading-overlay {
+	background: url("../img/ajax-loader.gif") no-repeat scroll center center #FFF;
+	height: 100%;
+}

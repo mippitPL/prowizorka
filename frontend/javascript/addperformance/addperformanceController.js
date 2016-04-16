@@ -1,8 +1,9 @@
 angular.module('taxApp').controller('addperformanceController', addperformanceController);
 
-angular.$inject = ['$scope', 'geolocation', 'httpService']
+angular.$inject = ['$scope', 'geolocation', 'httpService', '$location', '$rootScope']
 
-function addperformanceController($scope, geolocation, httpService) {
+function addperformanceController($scope, geolocation, httpService, $location, $rootScope) {
+	$rootScope.dataLoading = false;
 	$scope.newPerformance = {
 		short_description: '',
 		location_lat:      null,
@@ -27,7 +28,11 @@ function addperformanceController($scope, geolocation, httpService) {
 	});
 
 	function submitAddPerformance(performance) {
-		httpService.addPerformance(performance);
+		$scope.dataLoading = true;
+		httpService.addPerformance(performance).then(function(data) {
+
+			$location.path('performance/'+data.data.id);
+		});
 	}
 
 	$scope.submitAddPerformance = submitAddPerformance;

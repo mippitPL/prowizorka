@@ -78,6 +78,7 @@
 <!-- App body -->
 
 <div class='app-body'>
+	<div class="loading-overlay" ng-if="dataLoading"></div>
 	<div class='app-content scrollable-content'>
 		<input ng-if="Ui.active('searchBar')" type="search" class="form-control scrollable-header needsclick ng-scope" placeholder="Search..">
 		<ng-view></ng-view>

@@ -7,7 +7,8 @@ myapp = angular
 		'ngColorThief'
 
 	])
-	.run(function(amMoment) {
+	.run(function(amMoment, $rootScope) {
+		$rootScope.dataLoading = false;
 		amMoment.changeLocale('pl');
 	})
 
