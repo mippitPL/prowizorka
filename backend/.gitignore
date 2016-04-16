@@ -16,3 +16,5 @@
 !/log/.keep
 /tmp
 .byebug_history
+public/uploads/*.jpeg
+public/uploads/*.jpg

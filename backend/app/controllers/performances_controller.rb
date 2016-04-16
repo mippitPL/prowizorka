@@ -11,19 +11,20 @@ class PerformancesController < ApplicationController
   end
 
   def create
-    uploaded_io = params[:image]
+	repo = PictureRepository.new
 
+	filename = repo.persist(SecureRandom.uuid, params[:image])
     performance = Performance.create!(
       kind:              params[:kind],
       short_description: params[:short_description],
       user_id:           params[:user_id],
       lat:               params[:lat],
       long:              params[:long],
-      picture_filename:  uploaded_io.original_filename)
+      picture_filename:  "http://#{request.host}:#{request.port}#{filename}")
 
-    File.open(Rails.root.join('public', 'uploaded', uploaded_io.original_filename), 'wb') do |file|
-      file.write(uploaded_io.read)
-    end
+    # File.open(Rails.root.join('public', 'uploaded', uploaded_io.original_filename), 'wb') do |file|
+    #   file.write(uploaded_io.read)
+    # end
 
     render json: performance
   end
