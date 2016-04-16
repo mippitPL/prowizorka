@@ -11,7 +11,6 @@ function performanceController($scope, $routeParams, httpService, $location) {
 
     $scope.activeTab = 1;
 
-
     $scope.performance = {};
     $scope.currentUser = localStorage.getItem('userId');
     $scope.heartClicked = false;
@@ -19,6 +18,10 @@ function performanceController($scope, $routeParams, httpService, $location) {
     var id = $routeParams['id'];
     httpService.getPerformance(id).then(function(response) {
         $scope.performance = response.data;
+        $scope.mapData = {
+            lat: $scope.performance.lat,
+            long: $scope.performance.long
+        }
 
         httpService.isLiked($scope.performance.user_id,  $scope.currentUser).then(function(data) {
             console.log(data);
