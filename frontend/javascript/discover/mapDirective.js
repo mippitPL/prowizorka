@@ -10,7 +10,7 @@ function leafletMap($window) {
 		},
 		template : '',
 		link : function postLink(scope, elem, attrs) {
-			var winHeight = $window.innerHeight - 50;
+			var winHeight = $window.innerHeight - 92;
 			elem.css('height', winHeight + 'px');
 
 			var createMap = function (lat, long, perf) {
