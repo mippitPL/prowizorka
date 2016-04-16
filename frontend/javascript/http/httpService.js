@@ -26,6 +26,15 @@ function httpService($http, $q) {
     factory.renewPerformance = function(performance) {
         return $http.post('http://192.168.47.42:3000/renewPerformance', performance);
     }
+    factory.toggleHeart = function(artist, user) {
+        var data = {artist_id: artist, user_id: user};
+        return $http.post('http://192.168.47.42:3000/likes/toggle', data);
+    }
+
+    factory.isLiked = function(artist, user) {
+        var data = {artist_id: artist, user_id: user};
+        return $http.post('http://192.168.47.42:3000/likes/is_liked', data);
+    }
 
     return factory;
 }

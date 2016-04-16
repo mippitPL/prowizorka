@@ -18,6 +18,13 @@ function performanceController($scope, $routeParams, httpService, $location) {
     httpService.getPerformance(id).then(function(response) {
         $scope.performance = response.data;
 
+        httpService.isLiked($scope.performance.user_id,  $scope.currentUser).then(function(data) {
+            console.log(data);
+            console.log(data.data);
+            console.log(data.data.status);
+            $scope.heartClicked = data.data.status;
+
+        })
     });
 
     // newR = currentR + (255 - currentR) * tint_factor
@@ -37,9 +44,13 @@ function performanceController($scope, $routeParams, httpService, $location) {
     $scope.heartClick = function() {
         $scope.heartClicked = $scope.heartClicked ? false : true;
         if($scope.heartClicked) {
-            $scope.performance.likes++;
+            httpService.toggleHeart($scope.performance.user_id,  $scope.currentUser).then(function() {
+                $scope.performance.likes++;
+            })
         } else {
-            $scope.performance.likes--;
+            httpService.toggleHeart($scope.performance.user_id,  $scope.currentUser).then(function() {
+                $scope.performance.likes--;
+            })
         }
     }
 
