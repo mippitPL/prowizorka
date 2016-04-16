@@ -2,14 +2,14 @@ angular
     .module('taxApp')
     .controller('performanceController', performanceController);
 
-performanceController.$inject = ['$scope' ,'$routeParams','httpService'];
+performanceController.$inject = ['$scope' ,'$routeParams','httpService', "$location"];
 
-function performanceController($scope, $routeParams, httpService) {
+function performanceController($scope, $routeParams, httpService, $location) {
     if (localStorage.getItem("userId") == null) {
         $location.path("/start");
     }
 
-    
+
     $scope.performance = {};
     $scope.currentUser = localStorage.getItem('userId');
     $scope.heartClicked = false;
@@ -50,8 +50,8 @@ function performanceController($scope, $routeParams, httpService) {
     }
 
     $scope.removePerformance = function(performance) {
-        httpService.removePerformance(performance).then(function () {
-            location.path("addperformance");
+        httpService.removePerformance(performance.id).then(function () {
+            $location.path("addperformance");
         })
     }
 }

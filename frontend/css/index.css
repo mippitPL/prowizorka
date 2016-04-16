@@ -97,3 +97,7 @@ html, body, #map {
 .form-start {
 	margin-top:100px;
 }
+
+.table {
+	margin-bottom: 0 !important;
+}
