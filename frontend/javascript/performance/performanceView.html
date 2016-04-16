@@ -9,7 +9,7 @@
             <h5><span am-time-ago="performance.created_at"></span></h5>
             <h6>{{ performance.user.name }}</h6>
         </div>
-        <div >
+        <div ng-if="performance.user_id != currentUser">
             <table class="table" style="border: none;">
                 <tr style="text-align: center; font-size: 24pt;">
                     <td>
@@ -20,6 +20,11 @@
                     </td>
                 </tr>
             </table>
+        </div>
+        <div ng-if="performance.user_id == currentUser">
+            <button class="btn btn-block btn-md btn-primary">Pogrywam dalej</button>
+
+            <button class="btn btn-block btn-md btn-danger">Zwijam się</button>
         </div>
         <table class="table">
             <tr>

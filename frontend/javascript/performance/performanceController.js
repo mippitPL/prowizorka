@@ -6,7 +6,7 @@ performanceController.$inject = ['$scope' ,'$routeParams','httpService'];
 
 function performanceController($scope, $routeParams, httpService) {
     $scope.performance = {};
-    $scope.colors = [];
+    $scope.currentUser = localStorage.getItem('userId');
     $scope.heartClicked = false;
 
     var id = $routeParams['id'];
