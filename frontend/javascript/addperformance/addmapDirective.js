@@ -14,7 +14,7 @@ function addperformanceMap() {
 				}
 
 				var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-				var osmAttrib = '&copy <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+				var osmAttrib = '&copy <a href="http://openstreetmap.org">OpenStreetMap</a>'
 				var osm = new L.TileLayer(osmUrl,  { attribution: osmAttrib });       
 
 				var map = L.map(elem[0], options);
