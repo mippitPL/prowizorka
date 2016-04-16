@@ -16,14 +16,21 @@ class Performance < ActiveRecord::Base
   end
 
   def as_json(*)
-	super.merge({
+	h = {
 	  likes:       likes,
 	  picture_url: picture_url,
-	  user: {
-		id:          user.id,
-		name:        user.name,
-		description: user.description,
-	  }
-	})
+	}
+
+	if user.present?
+	  h.merge!({
+		user: {
+		  id:          user.id,
+		  name:        user.name,
+		  description: user.description,
+		}
+	  })
+	end
+
+	super.merge(h)
   end
 end
