@@ -4,7 +4,7 @@
     <div class="scrollable-content" style="text-align: center" >
         <div >
             <img id="photo" crossorigin="anonymous"  color-thief color-thief-dominant="colors"
-                 ng-src="{{ performance.picture_filename }}" height="50%" style="max-height: 400px; min-height: 300px; min-width: 400px;"/>
+                 ng-src="{{ performance.picture_url }}" height="50%" style="max-height: 400px; min-height: 300px; min-width: 400px;"/>
             <h4 style="padding-top: 10px;">{{ performance.short_description }}</h4>
             <h5><span am-time-ago="performance.created_at"></span></h5>
             <h6>{{ performance.user.name }}</h6>
