@@ -2,9 +2,11 @@ angular
 	.module('taxApp')
 	.controller('startController', startController);
 
-startController.$inject = ['$scope'];
+startController.$inject = ['$scope', '$location'];
 
-function startController($scope) {
-	console.log("working");
+function startController($scope, $location) {
 	$scope.chuj = "dupa";
+	if (localStorage.getItem("userId")) {
+		$location.url("/discover");
+	}
 }
