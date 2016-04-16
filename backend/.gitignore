@@ -18,3 +18,4 @@
 .byebug_history
 public/uploads/*.jpeg
 public/uploads/*.jpg
+public/uploads/*.png

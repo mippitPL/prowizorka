@@ -13,6 +13,7 @@ class Performance < ActiveRecord::Base
 	  "http://192.168.47.42:3000/user4.jpg"
 	]
 	arr[id % 4]
+	picture_filename.presence || "http://192.168.47.42:3000/user4.jpg"
   end
 
   def as_json(*)

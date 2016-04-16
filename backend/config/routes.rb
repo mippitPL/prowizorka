@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post 'likes/toggle'
+
   resources :users, only: [:show, :create, :update] do
     member do
       get 'performances'
