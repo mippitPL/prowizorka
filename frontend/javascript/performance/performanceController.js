@@ -9,6 +9,8 @@ function performanceController($scope, $routeParams, httpService, $location) {
         $location.path("/start");
     }
 
+    $scope.activeTab = 1;
+
 
     $scope.performance = {};
     $scope.currentUser = localStorage.getItem('userId');

@@ -1,38 +1,50 @@
-<div class="scrollable">
-    <!--ng-style="{'background-color': 'rgb('+colors[0]+','+colors[1]+','+colors[2]+')'}"
-    ng-style="{'background-color': getColor(colors)}"-->
-    <div class="scrollable-content" style="text-align: center" >
-        <div >
-            <div style="overflow-y: hidden; max-height: 50%;  text-align: center;">
-            <img id="photo" crossorigin="anonymous"  color-thief color-thief-dominant="colors"
-                 ng-src="{{ performance.picture_url }}" style="display: inline; height: 50%; width: 80%;" />
-            </div>
-            <h4 style="padding-top: 10px;">{{ performance.short_description }}</h4>
-            <h5><span am-time-ago="performance.created_at"></span></h5>
-            <h6>{{ performance.user.name }}</h6>
-        </div>
-        <div ng-if="performance.user_id != currentUser">
-            <table class="table" style="border: none;">
-                <tr style="text-align: center; font-size: 24pt;">
-                    <td>
-                        &nbsp;&nbsp;<i class="fa fa-paypal"></i>
-                    </td>
-                    <td ng-click="heartClick()" >
-                        <i class="fa fa-heart" ng-class="{red: heartClicked}"> </i>{{ performance.likes }}
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div ng-if="performance.user_id == currentUser" class="form">
-            <button class="btn btn-block btn-md btn-primary" ng-click="renewPerformance(performance)">Pogrywam dalej</button>
+<div ui-state="activeTab" default="1">
+  <ul class="nav nav-tabs">
+    <li ui-class="{'active': activeTab == 1}" class='discover-tab'>
+      <a ui-set="{'activeTab': 1}">Info</a>
+    </li>
+    <li ui-class="{'active': activeTab == 2}" class='discover-tab'>
+      <a ui-set="{'activeTab': 2}">Mapa</a>
+    </li>
+  </ul>
 
-            <button class="btn btn-block btn-md btn-danger" ng-click="removePerformance(performance)">Zwijam się</button>
+  <div ui-if="activeTab == 1">
+    <div style="text-align: center" >
+      <div >
+        <div style="overflow-y: hidden; max-height: 50%;  text-align: center;">
+          <img id="photo" crossorigin="anonymous"  color-thief color-thief-dominant="colors"
+                                                               ng-src="{{ performance.picture_url }}" style="display: inline; height: 50%; width: 80%;" />
         </div>
-        <table class="table">
-            <tr>
-                <td style="width: 20%"></td>
-                <td style="width: 80%"></td>
-            </tr>
+        <h4 style="padding-top: 10px;">{{ performance.short_description }}</h4>
+        <h5><span am-time-ago="performance.created_at"></span></h5>
+        <h6>{{ performance.user.name }}</h6>
+      </div>
+      <div ng-if="performance.user_id != currentUser">
+        <table class="table" style="border: none;">
+          <tr style="text-align: center; font-size: 24pt;">
+            <td>
+              &nbsp;&nbsp;<i class="fa fa-paypal"></i>
+            </td>
+            <td ng-click="heartClick()" >
+              <i class="fa fa-heart" ng-class="{red: heartClicked}"> </i>{{ performance.likes }}
+            </td>
+          </tr>
         </table>
+      </div>
+      <div ng-if="performance.user_id == currentUser" class="form">
+        <button class="btn btn-block btn-md btn-primary" ng-click="renewPerformance(performance)">Pogrywam dalej</button>
+
+        <button class="btn btn-block btn-md btn-danger" ng-click="removePerformance(performance)">Zwijam się</button>
+      </div>
+      <table class="table">
+        <tr>
+          <td style="width: 20%"></td>
+          <td style="width: 80%"></td>
+        </tr>
+      </table>
     </div>
+  </div>
+
+  <div ui-if="activeTab == 2">
+  </div>
 </div>
