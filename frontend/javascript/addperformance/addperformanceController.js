@@ -1,13 +1,20 @@
 angular.module('taxApp').controller('addperformanceController', addperformanceController);
 
-angular.$inject = ['$scope', 'geolocation']
+angular.$inject = ['$scope', 'geolocation', 'httpService']
 
-function addperformanceController($scope, geolocation) {
+function addperformanceController($scope, geolocation, httpService) {
 	$scope.newPerformance = {
 		short_description: '',
 		location_lat:      null,
 		location_long:     null,
+		image: 			   null,
+		user_id: localStorage.getItem('userId') 	
 	}
+
+    $scope.uploadFile = function(event){
+        var files = event.target.files;
+    };
+
 
 	geolocation.getLocation().then(function(data){
 		$scope.newPerformance.location_lat  = String(data.coords.latitude);
@@ -20,7 +27,7 @@ function addperformanceController($scope, geolocation) {
 	});
 
 	function submitAddPerformance(performance) {
-		console.warn(performance);
+		httpService.addPerformance(performance);
 	}
 
 	$scope.submitAddPerformance = submitAddPerformance;

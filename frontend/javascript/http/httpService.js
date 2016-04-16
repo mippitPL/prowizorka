@@ -15,5 +15,9 @@ function httpService($http, $q) {
         return $http.post('http://192.168.47.42:3000/users', user);
     }
 
+    factory.addPerformance = function(performance) {
+        return $http.post('http://192.168.47.42:3000/performances', performance);
+    }
+
     return factory;
 }
