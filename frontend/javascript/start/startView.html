@@ -1,6 +1,16 @@
+
+
 <div class="scrollable">
+<form role="form" ng-submit="submitCreateUser(newUser)" class="ng-pristine ng-valid ng-valid-email">
+<div class="form-group has-success has-feedback">
+  <label>Nazwa</label>
+  <input type="text" ng-model="newUser.name" class="form-control ng-pristine ng-untouched ng-valid needsclick" placeholder="Wpisz swoją nazwę">
+</div>
   <div class="scrollable-content">
-  	<a class="btn btn-block btn-md btn-primary" href="#/createuser">Jestem artystą</a>
-  	<a class="btn btn-block btn-md btn-primary" href="#/discover">Jestem prostym człowiekiem</a>
+  	<input type="submit" name="sb" class="btn btn-block btn-md btn-primary" value="Jestem artystą">
+  	<input name="sb" ng-click="humanSubmit(newUser)" class="btn btn-block btn-md btn-primary" value="Jestem zwyłkym człowiekiem">
   </div>
+</form>
+
+  
 </div>
