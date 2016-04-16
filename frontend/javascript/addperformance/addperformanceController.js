@@ -3,9 +3,12 @@ angular.module('taxApp').controller('addperformanceController', addperformanceCo
 angular.$inject = ['$scope', 'geolocation', 'httpService', '$location', '$rootScope']
 
 function addperformanceController($scope, geolocation, httpService, $location, $rootScope) {
-
 	if (localStorage.getItem("userId") == null) {
 		$location.path("/start");
+	}
+	
+	if (localStorage.getItem("currentPerformance") !== null) {
+		$location.path("/performance/"+localStorage.getItem("currentPerformance"));
 	}
 
 
@@ -36,7 +39,7 @@ function addperformanceController($scope, geolocation, httpService, $location, $
 	function submitAddPerformance(performance) {
 		$scope.dataLoading = true;
 		httpService.addPerformance(performance).then(function(data) {
-
+			localStorage.setItem("currentPerformance", data.data.id);
 			$location.path('performance/'+data.data.id);
 		});
 	}

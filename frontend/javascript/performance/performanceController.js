@@ -61,8 +61,9 @@ function performanceController($scope, $routeParams, httpService, $location) {
     }
 
     $scope.removePerformance = function(performance) {
-        httpService.removePerformance(performance.id).then(function () {
-            $location.path("addperformance");
+        httpService.removePerformance(performance).then(function () {
+            localStorage.setItem("currentPerformance", null);
+            location.path("addperformance");
         })
     }
 }
