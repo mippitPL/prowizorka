@@ -38,4 +38,5 @@ myapp = angular
 	        	templateUrl: 'javascript/addperformance/addperformanceView.html', 
 	        	controller: 'addperformanceController'
 	      	})
+			.otherwise({ redirectTo: '/start' })
 	}]);
