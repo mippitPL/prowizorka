@@ -26,10 +26,19 @@
               &nbsp;&nbsp;<i class="fa fa-paypal"></i>
             </td>
             <td ng-click="heartClick()" >
-              <i class="fa fa-heart" ng-class="{red: heartClicked}"> </i>{{ performance.likes }}
+              <i class="fa fa-heart" ng-class="{red: heartClicked}"> </i> {{ performance.likes }}
             </td>
           </tr>
         </table>
+          <h4>Poinformuj znajomych!</h4>
+          <div >
+              <table class="table">
+                  <tr>
+                      <td style="border: none; width: 50%;"><button class="btn btn-block btn-primary"><i class="fa fa-twitter" style="font-size: 24pt;"> </i></button></td>
+                      <td style="border: none; width: 50%;"><button class="btn btn-block  btn-primary"><i class="fa fa-facebook" style="font-size: 24pt;"></i></button</td>
+                  </tr>
+              </table>
+          </div>
       </div>
       <div ng-if="performance.user_id == currentUser" class="form">
         <button class="btn btn-block btn-md btn-primary" ng-click="renewPerformance(performance)">Pogrywam dalej</button>
