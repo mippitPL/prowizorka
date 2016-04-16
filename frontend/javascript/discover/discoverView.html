@@ -18,7 +18,7 @@
 
   <div ui-if="activeTab == 2">
     <div class="list-group">
-      <a ng-repeat="perf in performances" href="#" class="list-group-item">{{ perf.user.name || "Artysta" }}: {{ perf.short_description || "Występ" }}<i class="fa fa-chevron-right pull-right"></i></a>
+      <a ng-repeat="perf in performances" href="#/performance/{{ perf.id }}" class="list-group-item">{{ perf.user.name || "Artysta" }}: {{ perf.short_description || "Występ" }}<i class="fa fa-chevron-right pull-right"></i></a>
     </div>
   </div>
 </div>
