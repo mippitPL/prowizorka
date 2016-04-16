@@ -32,4 +32,9 @@ class PerformancesController < ApplicationController
 
     render json: performance
   end
+
+  def destroy
+    Performance.where(id: params[:id]).first.destroy
+    render json: { status: :ok }
+  end
 end

@@ -2,7 +2,7 @@ class Performance < ActiveRecord::Base
   belongs_to :user
 
   def likes
-	42
+    Like.where(artist_id: user_id).count
   end
 
   def picture_url
