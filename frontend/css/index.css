@@ -7,6 +7,10 @@ html, body, #map {
     overflow: hidden;
 }
 
+.scrollable-content {
+	background: #fff;
+}
+
 .discover-map-container
 {
 	width: 100%;

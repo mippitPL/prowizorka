@@ -3,7 +3,9 @@ myapp = angular
 		'ngRoute',
 		'geolocation',
 		'mobile-angular-ui',
-		'angularMoment'
+		'angularMoment',
+		'ngColorThief'
+
 	])
 	.run(function(amMoment) {
 		amMoment.changeLocale('pl');
