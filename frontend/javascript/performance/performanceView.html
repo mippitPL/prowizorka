@@ -3,8 +3,10 @@
     ng-style="{'background-color': getColor(colors)}"-->
     <div class="scrollable-content" style="text-align: center" >
         <div >
+            <div style="overflow-y: hidden; max-height: 50%;  text-align: center;">
             <img id="photo" crossorigin="anonymous"  color-thief color-thief-dominant="colors"
-                 ng-src="{{ performance.picture_url }}" height="50%" style="max-height: 400px; min-height: 300px; min-width: 400px;"/>
+                 ng-src="{{ performance.picture_url }}" style="display: inline; height: 50%; width: 80%;" />
+            </div>
             <h4 style="padding-top: 10px;">{{ performance.short_description }}</h4>
             <h5><span am-time-ago="performance.created_at"></span></h5>
             <h6>{{ performance.user.name }}</h6>
