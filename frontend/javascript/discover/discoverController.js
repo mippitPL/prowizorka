@@ -4,6 +4,8 @@ angular.$inject = ['$scope', 'geolocation', '$rootScope', 'httpService', '$locat
 
 function discoverController($scope, geolocation, $rootScope, httpService, $location) {
 
+    $scope.activeTab = 1;
+
     if (localStorage.getItem("userId") == null) {
         $location.path("/start");
     }
