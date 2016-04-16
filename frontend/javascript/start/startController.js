@@ -26,21 +26,29 @@ function startController($scope, $location, httpService) {
 
 	function submitCreateUser(user) {
 		console.warn(user);
-		httpService.createUser(user).then(function(data) {
-			$scope.newUserId = data.data.id;
-			localStorage.setItem("userId", $scope.newUserId);
-			$location.path("addperformance");
-		});
+		if (user.name) {
+			httpService.createUser(user).then(function(data) {
+				$scope.newUserId = data.data.id;
+				localStorage.setItem("userId", $scope.newUserId);
+				$location.path("addperformance");
+			});
+		} else {
+			$scope.notValid = true;
+		}
 		// resetCreateUserForm();
 	}
 
 	function humanSubmit(user) {
 		console.warn(user);
-		httpService.createUser(user).then(function(data) {
-			$scope.newUserId = data.data.id;
-			localStorage.setItem("userId", $scope.newUserId);
-			$location.path("discover");
-		});
+		if (user.name) {
+			httpService.createUser(user).then(function(data) {
+				$scope.newUserId = data.data.id;
+				localStorage.setItem("userId", $scope.newUserId);
+				$location.path("discover");
+			});
+		} else {
+			$scope.notValid = true;
+		}
 		// resetCreateUserForm();
 	}
 
