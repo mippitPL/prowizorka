@@ -101,3 +101,7 @@ html, body, #map {
 .table {
 	margin-bottom: 0 !important;
 }
+
+.discover-tab {
+    width: 50%;
+}
